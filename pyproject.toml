@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aupower-agent"
+version = "0.1.0"
+description = "Australia five-region day-ahead power forecasting with expert models and Ollama routing."
+requires-python = ">=3.11"
+readme = "README.md"
+authors = [
+  { name = "OpenAI Codex" }
+]
+dependencies = [
+  "pydantic>=2.8",
+  "requests>=2.32",
+  "PyYAML>=6.0",
+]
+
+[project.optional-dependencies]
+forecast = [
+  "numpy>=1.26",
+  "pandas>=2.1",
+  "scikit-learn>=1.4",
+  "lightgbm>=4.5",
+  "torch>=2.2",
+  "holidays>=0.58",
+  "neuralforecast>=1.7",
+]
+
+[project.scripts]
+aupower = "aupower.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]

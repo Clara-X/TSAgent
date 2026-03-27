@@ -1,0 +1,9 @@
+{
+  "val_wmape_rule_router": 0.051047734916210175,
+  "val_wmape_learned_router": 0.050499770790338516,
+  "val_wmape_best_blend": 0.0506439171731472,
+  "tune_wmape_rule_router": 0.0573553666472435,
+  "tune_wmape_best_blend": 0.057094018906354904,
+  "blend_alpha": 0.6,
+  "n_samples": 920
+}

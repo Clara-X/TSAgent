@@ -1,0 +1,17 @@
+name: aupower-agent
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+  - numpy>=1.26
+  - pandas>=2.1
+  - scikit-learn>=1.4
+  - pyyaml>=6.0
+  - requests>=2.32
+  - pytorch>=2.2
+  - pip:
+      - holidays>=0.58
+      - lightgbm>=4.5
+      - neuralforecast>=1.7

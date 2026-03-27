@@ -1,0 +1,27 @@
+{
+  "NSW1": {
+    "base_residual_14d": 0.05097007751464844,
+    "weather_residual_14d": 0.04545203223824501,
+    "event_residual_14d": 0.05114235356450081
+  },
+  "QLD1": {
+    "base_residual_14d": 0.04707663506269455,
+    "weather_residual_14d": 0.03928242623806,
+    "event_residual_14d": 0.04067003354430199
+  },
+  "SA1": {
+    "base_residual_14d": 0.16642539203166962,
+    "weather_residual_14d": 0.1216849610209465,
+    "event_residual_14d": 0.14904385805130005
+  },
+  "TAS1": {
+    "base_residual_14d": 0.10493980348110199,
+    "weather_residual_14d": 0.07486414164304733,
+    "event_residual_14d": 0.07673634588718414
+  },
+  "VIC1": {
+    "base_residual_14d": 0.0652676448225975,
+    "weather_residual_14d": 0.05917452648282051,
+    "event_residual_14d": 0.06271785497665405
+  }
+}

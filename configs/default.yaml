@@ -1,0 +1,84 @@
+project:
+  data_dir: data
+  artifact_dir: artifacts
+  processed_dir: artifacts/processed
+  model_dir: artifacts/models
+  report_dir: artifacts/reports
+  log_dir: artifacts/logs
+
+splits:
+  pretrain_start: "2012-01-01"
+  pretrain_end: "2018-12-31"
+  multimodal_start: "2019-01-01"
+  train_end: "2021-06-30"
+  val_end: "2021-12-31"
+  test_end: "2022-05-15"
+
+data:
+  load_path: data/AULF-2019-2023.csv
+  weather_path: data/combined_weather_data.csv
+  news_path: data/news_processed_data_2019-2022.json
+  regions: ["NSW1", "QLD1", "SA1", "TAS1", "VIC1"]
+  state_to_region:
+    NSW: NSW1
+    QLD: QLD1
+    SA: SA1
+    TAS: TAS1
+    VIC: VIC1
+  stable_weather_columns:
+    - "Min Temp (K)"
+    - "Max Temp (K)"
+    - "Max Wind Speed (m/s)"
+    - "Afternoon Humidity"
+    - "Afternoon Pressure"
+    - "Morning Temp"
+    - "Afternoon Temp"
+
+weather:
+  lags: [1, 2, 3, 7, 14, 30]
+  backend: auto
+  minimum_history_days: 30
+
+news:
+  keyword_terms:
+    - electricity
+    - blackout
+    - outage
+    - aemo
+    - renewable
+    - solar farm
+    - wind farm
+    - coal plant
+    - transmission
+    - interconnector
+    - wholesale price
+    - heatwave
+    - power bill
+    - energy market
+    - demand response
+  extraction_model: qwen3.5:9b
+  routing_model: qwen2.5:7b
+  ollama_url: http://127.0.0.1:11434
+  max_articles_per_day_region: 20
+  max_body_chars: 5000
+
+experts:
+  horizon: 48
+  base_lookback_days: 14
+  weather_lookback_days: 28
+  event_lookback_days: 56
+  batch_size: 64
+  max_epochs: 30
+  patience: 5
+  lr: 0.001
+  hidden_dim: 384
+  dropout: 0.1
+  backend: auto
+
+agent:
+  temperature: 0
+  default_weights:
+    base: 0.4
+    weather: 0.4
+    event: 0.2
+  timeout_seconds: 60
