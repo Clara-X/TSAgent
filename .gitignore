@@ -60,3 +60,4 @@ yarn-error.log
 
 .conda/
 data/
+!src/aupower/data/
